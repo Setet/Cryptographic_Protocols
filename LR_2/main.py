@@ -54,8 +54,8 @@ def crt(m, x):
 
 
 def main():
-    x = [3, 4, 1, 0]
-    m = [4, 7, 9, 11]
+    x = [2, 15, 5]
+    m = [5, 17, 12]
 
     for i in range(len(x)):
         print(f"A ≅ {x[i]}mod({m[i]})")
