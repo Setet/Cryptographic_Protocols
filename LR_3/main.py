@@ -62,15 +62,16 @@ def is_neprivodim(x):
 
 
 if __name__ == '__main__':
-    test1 = [1, 0, 1, 0]  # x^3 + x
-    test2 = [1, 1, 0, 1, 1]  # x^4 + x^3 + x + 1
-    test3 = [1, 1, 1, 0]  # x^2 + x + 1
+    test1 = [1, 0, 0, 1, 0, 1]
+    test2 = [1, 1, 0, 1, 1, 1]
+    test3 = [1, 0, 1, 1, 0, 1, 1]
+    test4 = [1, 0, 1, 1, 0, 1, 1]
 
-    if not is_neprivodim(test2):
-        print(f"{test2} Приводимый, не примитивный")
+    if not is_neprivodim(test1):
+        print(f"{test1} Приводимый, не примитивный")
     else:
         print('Неприводимый, ', end='')
-        if is_primitiv(test2):
+        if is_primitiv(test1):
             print('примитивный')
         else:
             print('не примитивный')
