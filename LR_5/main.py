@@ -22,7 +22,7 @@ def isPrime(n):
 if __name__ == '__main__':
     all_start_time = datetime.now()
     print("Я начал : "+str(all_start_time))
-    n = 10000
+    n = 1000
     composite_numbers = []
     wb = ox.Workbook()
     ws = wb.worksheets[0]
@@ -30,7 +30,7 @@ if __name__ == '__main__':
     # Проверяем каждое число от 2 до n на простоту
     for i in range(2, n):
 
-        if not isPrime(i):
+        if isPrime(i):
             composite_numbers.append(i)  # Добавляем i в список составных чисел
 
     ws.cell(row=1, column=1).value = "Число"
