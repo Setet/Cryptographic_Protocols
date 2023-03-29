@@ -7,13 +7,19 @@ def left_rotate(value, shift):
 
 def md5(message):
     message = bytearray(message, 'utf-8')
+
     # Исходные значения, определенные в стандарте MD5
-    initial_values = [int('0x67452301', 16), int('0xEFCDAB89', 16), int('0x98BADCFE', 16), int('0x10325476', 16)]
+    initial_values = [int('0x67452301', 16),
+                      int('0xEFCDAB89', 16),
+                      int('0x98BADCFE', 16),
+                      int('0x10325476', 16)]
+
     # Смещения для каждого из 64 раундов
     shift_amounts = [7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
                      5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20, 5, 9, 14, 20,
                      4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
                      6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21]
+
     # Константы для каждого из 64 раундов
     constants = [int(math.floor(abs(math.sin(i + 1)) * (2 ** 32))) for i in range(64)]
 
@@ -37,14 +43,15 @@ def md5(message):
 
         # Основной цикл-шаг алгоритма MD5
         for j in range(64):
+
             # Вычисление функции F, G, H или I в зависимости от номера шага
-            if j < 16:
+            if 0 < j < 16:
                 f = (b & c) | ((~b) & d)
                 g = j
-            elif j < 32:
+            elif 16 < j < 32:
                 f = (d & b) | ((~d) & c)
                 g = (5 * j + 1) % 16
-            elif j < 48:
+            elif 32 < j < 48:
                 f = b ^ c ^ d
                 g = (3 * j + 5) % 16
             else:
